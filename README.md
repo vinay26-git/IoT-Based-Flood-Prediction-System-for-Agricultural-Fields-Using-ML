@@ -2,7 +2,7 @@
 
 An end‑to‑end IoT system that monitors field conditions and predicts flood risk using machine learning, sending real‑time alerts to farmers via SMS and web dashboards
 
-![Overall System Architecture](images/architecture.jpg)
+![Overall System Architecture](images/architecture.png)
 
 ---
 
@@ -11,7 +11,7 @@ An end‑to‑end IoT system that monitors field conditions and predicts flood r
 This project combines low‑cost sensors, Arduino‑based data acquisition, long‑range wireless communication, a Raspberry Pi gateway, and a machine learning model to provide early flood warnings in agricultural fields  
 Sensor data is transmitted over a low‑power long‑range (LoRa) link to a Raspberry Pi, where it is logged, visualized, and fed into a Random Forest classifier to determine whether conditions are normal or flood‑prone
 
-![High‑Level Block Diagram](images/block-digram.jpg)
+![High‑Level Block Diagram](images/block-digram.jpeg)
 
 ---
 
@@ -31,7 +31,7 @@ Sensor data is transmitted over a low‑power long‑range (LoRa) link to a Rasp
 
 At a high level, the system has two main parts: a **transmitter (sensor) node** in the field and a **gateway node** (Raspberry Pi) at a safer location
 
-![Sensor & Gateway Nodes](images/cirict-digram.jpg)
+![Sensor & Gateway Nodes](images/cirict-digram.jpeg)
 
 - **Sensor / Transmitter Node (Arduino):**  
   - Reads water level, soil moisture, temperature, and humidity.  
@@ -52,13 +52,13 @@ At a high level, the system has two main parts: a **transmitter (sensor) node** 
 
 ### Prototype in Test Environment
 
-![Prototype Test Setup](images/test.jpg)
+![Prototype Test Setup](images/test.jpeg)
 
 ### LCD Display at Sensor Node
 
 The LCD shows temperature, humidity, water level, and soil moisture along with a sending status during LoRa transmission.
 
-![LCD Readings](images/lcd.jpg)
+![LCD Readings](images/lcd.jpeg)
 
 ---
 
@@ -157,7 +157,7 @@ cd <your-repo-name>
 
 ## Model Training Workflow
 
-![Random Forest Concept](images/random.jpg)
+![Random Forest Concept](images/random.PNG)
 
 1. **Collect data**  
    - Run the LoRa receiver script to log raw sensor readings from the field into `flooddata.csv` with columns like `Time`, `Temperature`, `Humidity`, `Water_Level`, `Soil`, and `Flood` (binary label 0/1).  
@@ -187,15 +187,15 @@ cd <your-repo-name>
 
 The Raspberry Pi hosts a simple web interface showing the latest sensor readings and model predictions from the CSV log.
 
-![Local Dashboard Table View](images/output.jpg)
-![Local Dashboard Screenshot](images/dashboard.jpg)
+![Local Dashboard Table View](images/output.jpeg)
+![Local Dashboard Screenshot](images/dashboard.PNG)
 
 ### ThingSpeak Visualization
 
 ThingSpeak is used to visualize time‑series data for temperature, humidity, water level, soil moisture, and model prediction
 
-![ThingSpeak Sensor Fields](images/thingspeck2.jpg)
-![ThingSpeak Flood Prediction](images/thingspeck1.jpg)
+![ThingSpeak Sensor Fields](images/thingspeck2.PNG)
+![ThingSpeak Flood Prediction](images/thingspeck1.PNG)
 
 ---
 
@@ -203,7 +203,7 @@ ThingSpeak is used to visualize time‑series data for temperature, humidity, wa
 
 When the trained model predicts a flood condition, the Raspberry Pi triggers an SMS alert using the GSM module
 
-![SMS Flood Alert Example](images/test.jpg)
+![SMS Flood Alert Example](images/test.jpeg)
 
 1. **Run LoRa receiver + ML + SMS**
 
